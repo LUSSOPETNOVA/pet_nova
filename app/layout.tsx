@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
+// app/layout.tsx
 import "./globals.css";
+import { Inter } from "next/font/google";
 
-export const metadata: Metadata = {
-  title: "PetNova Health — The Operating System for Preventive Pet Health",
-  description:
-    "Centralized health records. Personalized diagnostics. Intelligent care plans. Ongoing monitoring — all in one secure platform.",
-};
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${inter.className} min-h-screen bg-white text-slate-900 antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
